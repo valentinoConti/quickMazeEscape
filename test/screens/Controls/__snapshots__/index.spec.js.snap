@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Controls screen test take snapshot and test button back to menu 1`] = `
+<Controls
+  setScreen={[MockFunction]}
+>
+  <div
+    id="controls"
+  >
+    <p
+      className="title"
+    >
+      Controls:
+    </p>
+    <p>
+      Arrow keys for moving
+    </p>
+    <p>
+      "R" for restarting the game
+    </p>
+    <p
+      className="title"
+    >
+      Objetive:
+    </p>
+    <div
+      id="objetive"
+    >
+      <p>
+        You should make the player
+      </p>
+      <img
+        src=""
+      />
+      <p>
+        get to the escape door
+      </p>
+      <img
+        src=""
+      />
+      <p>
+        as fast as posible and without getting out of movements!
+      </p>
+    </div>
+    <button
+      className="menuButton"
+      onClick={[Function]}
+    >
+      Back to menu
+    </button>
+  </div>
+</Controls>
+`;

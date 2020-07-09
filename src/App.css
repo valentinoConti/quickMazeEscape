@@ -2,6 +2,7 @@ body {
   display: flex;
   justify-content: center;
   margin: 0;
+  overflow: hidden;
 }
 
 #root {
@@ -9,5 +10,6 @@ body {
   position: absolute;
   width: 750px;
   height: 750px;
-  /* transform: scale(0.9); */
+  transform: scale(0.9);
+  transform-origin: top center;
 }

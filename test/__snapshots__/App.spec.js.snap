@@ -11,13 +11,28 @@ exports[`Main App tests should take/compare App snapshot 1`] = `
       <h1
         className="menuTitle"
       >
-        Maze Escape
+        Quick-Maze Escape
       </h1>
       <button
         className="menuButton"
+        id="playButton"
         onClick={[Function]}
       >
         Play
+      </button>
+      <button
+        className="menuButton marginTop"
+        id="instructionsButton"
+        onClick={[Function]}
+      >
+        Instructions
+      </button>
+      <button
+        className="menuButton marginTop"
+        id="fullscreenButton"
+        onClick={[Function]}
+      >
+        Fullscreen
       </button>
       <footer>
         Valentino Conti

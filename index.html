@@ -12,6 +12,16 @@
           document.querySelector('#game').focus();
         }
       })
+      document.addEventListener('fullscreenchange', exitFullscreen, false);
+      document.addEventListener('mozfullscreenchange', exitFullscreen, false);
+      document.addEventListener('MSFullscreenChange', exitFullscreen, false);
+      document.addEventListener('webkitfullscreenchange', exitFullscreen, false);
+
+      function exitFullscreen() {
+        if (!document.fullscreenElement) {
+          document.querySelector('#root').style.transform = 'scale(0.9)';
+        }
+      }
     </script>
   </body>
 </html>

@@ -1,0 +1,316 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Playing tests should take/compare snapshot 1`] = `
+<Memo(Play)
+  levelNumber={1}
+  score={0}
+  setLevelNumber={[MockFunction]}
+  setScore={[MockFunction]}
+  setScreen={[MockFunction]}
+>
+  <div
+    id="game"
+    onKeyDown={[Function]}
+    tabIndex="0"
+  >
+    <div
+      className="tile grass"
+      key="tile-0-0"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile grass"
+      key="tile-1-0"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile grass"
+      key="tile-2-0"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile grass"
+      key="tile-3-0"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile grass"
+      key="tile-4-0"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile wall"
+      key="tile-0-1"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile wall"
+      key="tile-1-1"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile grass"
+      key="tile-2-1"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile wall"
+      key="tile-3-1"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile wall"
+      key="tile-4-1"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile wall"
+      key="tile-0-2"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile wall"
+      key="tile-1-2"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile grass"
+      key="tile-2-2"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile wall"
+      key="tile-3-2"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile wall"
+      key="tile-4-2"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile grass"
+      key="tile-0-3"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile grass"
+      key="tile-1-3"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile grass"
+      key="tile-2-3"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile wall"
+      key="tile-3-3"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile wall"
+      key="tile-4-3"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile wall"
+      key="tile-0-4"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile wall"
+      key="tile-1-4"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile grass"
+      key="tile-2-4"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile grass"
+      key="tile-3-4"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="tile grass"
+      key="tile-4-4"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+    <div
+      className="player"
+      style={
+        Object {
+          "bottom": 675,
+          "height": 110,
+          "left": 15,
+          "transform": "
+      scaleX(1)
+      rotate(0deg)
+    ",
+          "width": 110,
+        }
+      }
+    />
+    <div
+      className="exitDoor"
+      style={
+        Object {
+          "bottom": 58,
+          "height": 130,
+          "left": 610,
+          "width": 130,
+        }
+      }
+    />
+    <div
+      className="gameFooter"
+    >
+      <h3
+        className="info alignLeft"
+      >
+        Time left: 
+        10
+      </h3>
+      <h3
+        className="info alignMiddle"
+      >
+        Score: 
+        0
+      </h3>
+      <h3
+        className="info alignRight"
+      >
+        Moves left: 
+        12
+      </h3>
+    </div>
+  </div>
+</Memo(Play)>
+`;

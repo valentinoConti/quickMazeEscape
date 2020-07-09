@@ -1,0 +1,42 @@
+#controls {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+#controls > p {
+  font-size: 36px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#controls > p.title {
+  margin-top: 30px;
+  margin-bottom: 25px;
+  font-size: 64px;
+  font-weight: bold;
+}
+
+#controls > .menuButton {
+  margin-top: 50px;
+  width: 300px;
+  height: 50px;
+  margin-left: 0;
+}
+
+#objetive {
+  display: flex;
+  flex-direction: column;
+}
+
+#objetive > p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+#objetive > img {
+  width: 60px;
+  height: 60px;
+  align-self: center;
+}

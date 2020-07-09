@@ -10,11 +10,9 @@ export const handleKeys = (prevState, level, setMovesLeft, locked) => {
   const X = prevState[0];
   const Y = prevState[1];
   const boardSize = level.tiles.length;
-  console.log('prev pos ', [X, Y]);
   return {
     ArrowRight: () => {
       if (X < boardSize - 1 && level.tiles[Y][X+1] === 0 && (!locked || !(level.lock[0] === Y && level.lock[1] === X+1))) {
-        console.log('new pos ArrowRight ', [X+1, Y]);
         setMovesLeft(prev => prev - 1);
         return [X+1, Y, {right: true, position: 'normal'}];
       }
@@ -22,7 +20,6 @@ export const handleKeys = (prevState, level, setMovesLeft, locked) => {
     },
     ArrowLeft: () => {
       if (X > 0 && level.tiles[Y][X-1] === 0 && (!locked || !(level.lock[0] === Y && level.lock[1] === X-1))) {
-        console.log('new pos ArrowLeft ', [X-1, Y]);
         setMovesLeft(prev => prev - 1);
         return [X-1, Y, {right: false, position: 'normal'}];
       }
@@ -30,7 +27,6 @@ export const handleKeys = (prevState, level, setMovesLeft, locked) => {
     },
     ArrowDown: () => {
       if (Y < boardSize - 1 && level.tiles[Y+1][X] === 0 && (!locked || !(level.lock[0] === Y+1 && level.lock[1] === X))) {
-        console.log('new pos ArrowDown ', [X, Y+1]);
         setMovesLeft(prev => prev - 1);
         return [X, Y+1, ({right: prevState[2].right, position: 'down'})];
       }
@@ -38,7 +34,6 @@ export const handleKeys = (prevState, level, setMovesLeft, locked) => {
     },
     ArrowUp: () => {
       if (Y > 0 && level.tiles[Y-1][X] === 0 && (!locked || !(level.lock[0] === Y-1 && level.lock[1] === X))) {
-        console.log('new pos ArrowUp ', [X, Y-1]);
         setMovesLeft(prev => prev - 1);
         return [X, Y-1, ({right: prevState[2].right, position: 'up'})];
       }
@@ -47,4 +42,4 @@ export const handleKeys = (prevState, level, setMovesLeft, locked) => {
   }
 };
 
-export const allowedKeys = ['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp'];
+export const allowedKeys = ['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp', 'r', 'R'];

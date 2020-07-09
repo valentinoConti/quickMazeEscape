@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu screen test should take/compare snapshot 1`] = `
+<Win
+  score={20}
+  setScore={[MockFunction]}
+  setScreen={[MockFunction]}
+>
+  <div
+    id="win"
+  >
+    <p>
+      You win!
+    </p>
+    <p>
+      Your score: 
+      <b
+        id="actualScore"
+      >
+        20
+      </b>
+    </p>
+    <p>
+      Highest score: 
+      <b
+        id="highestScore"
+      >
+        20
+      </b>
+    </p>
+    <button
+      className="menuButton"
+      onClick={[Function]}
+    >
+      Back to menu
+    </button>
+  </div>
+</Win>
+`;

@@ -4,7 +4,21 @@ import getLevel from '../../levels';
 import {handleKeys, allowedKeys} from './keys';
 import './Play.css';
 
-const Play = ({setScreen, levelNumber, setLevelNumber}) => {
+/**
+ * @name Play
+ * @description This is the game screen. Here is where all the game logic happens
+ *
+ * @param {Integer} levelNumber
+ * @param {Function} setLevelNumber
+ * @param {Function} setScreen
+ */
+const Play = ({
+  levelNumber,
+  score,
+  setLevelNumber,
+  setScore,
+  setScreen
+}) => {
   const [whichLevel, setWhichLevel] = useState(1);
   const [playing, setPlaying] = useState(true);
 
@@ -23,25 +37,11 @@ const Play = ({setScreen, levelNumber, setLevelNumber}) => {
 
   const boardSize = level.tiles.length;
 
-  const getDoorPosition = useCallback(() => ({
-    bottom: 58 + (750/boardSize) * Math.abs(level.escapeDoor[1]-(boardSize-1)),
-    left: 10 + (750/boardSize) * level.escapeDoor[0],
-    width: 13/15 * 750/boardSize,
-    height: 13/15 * 750/boardSize
-  }), [level]);
-
-  const getUnlockPosition = useCallback(() => ({
-    bottom: 58 + (750/boardSize) * Math.abs(level.unlock[0]-(boardSize-1)),
-    left: 10 + (750/boardSize) * level.unlock[1],
-    width: 2/3 * 750/boardSize,
-    height: 2/3 * 750/boardSize
-  }), [level]);
-
-  const getLockPosition = useCallback(() => ({
-    bottom: 58 + (750/boardSize) * Math.abs(level.lock[0]-(boardSize-1)),
-    left: 10 + (750/boardSize) * level.lock[1],
-    width: 750/boardSize,
-    height: 750/boardSize
+  const getMapPosition = useCallback((bottomValue, leftValue, sizeMultiplier) => ({
+    bottom: 58 + (750/boardSize) * Math.abs(bottomValue-(boardSize-1)),
+    left: 10 + (750/boardSize) * leftValue,
+    width: sizeMultiplier * 750/boardSize,
+    height: sizeMultiplier * 750/boardSize
   }), [level]);
 
   const getPlayerPosition = useCallback(() => ({
@@ -63,12 +63,22 @@ const Play = ({setScreen, levelNumber, setLevelNumber}) => {
 
   const handleKeydown = (ev) => {
     ev.persist();
+    ev.preventDefault();
     if (playing && allowedKeys.includes(ev.key)) {
-      setPlayer(prevState => {
-        return handleKeys(prevState, level, setMovesLeft, locked)[ev.key]()
-      });
+      if (ev.key.toLowerCase() !== 'r') {
+        setPlayer(prevState => {
+          return handleKeys(prevState, level, setMovesLeft, locked)[ev.key]()
+        });
+      }
+      else {
+        lost();
+      }
     }
   };
+
+  const lost = () => {
+    setPlaying(false);
+  }
 
   // Timer counter and lost
   useEffect(() => {
@@ -78,7 +88,7 @@ const Play = ({setScreen, levelNumber, setLevelNumber}) => {
       }, 1000);
     }
     else {
-      setPlaying(false);
+      lost()
     }
     return () => clearTimeout(timing);
   }, [timeLeft]);
@@ -86,7 +96,7 @@ const Play = ({setScreen, levelNumber, setLevelNumber}) => {
   // Movements left lost
   useEffect(() => {
     if (!movesLeft) {
-      setPlaying(false);
+      lost()
     }
   }, [movesLeft]);
 
@@ -94,7 +104,13 @@ const Play = ({setScreen, levelNumber, setLevelNumber}) => {
   useEffect(() => {
     // WIN
     if (player[0] === level.escapeDoor[0] && player[1] === level.escapeDoor[1]) {
-      setLevelNumber(levelNumber + 1);
+      setScore(score + (timeLeft*3 + movesLeft*4));
+      if (levelNumber < document.totalLevels) {
+        setLevelNumber(levelNumber + 1);
+      } else {
+        setLevelNumber(1);
+        setScreen('win');
+      }
     }
     // bomba unlock
     else if (player[0] === level.unlock[1] && player[1] === level.unlock[0]) {
@@ -105,6 +121,13 @@ const Play = ({setScreen, levelNumber, setLevelNumber}) => {
   useEffect(() => { gameDivRef.current?.focus() }, []);
   const goMenu = () => {
     setScreen('menu')
+    setScore(0);
+    setLevelNumber(1);
+  }
+
+  const restart = () => {
+    setScreen('play')
+    setScore(0);
     setLevelNumber(1);
   }
 
@@ -113,7 +136,8 @@ const Play = ({setScreen, levelNumber, setLevelNumber}) => {
       {!playing && (
         <div className="lost">
           <b>You lose</b>
-          <button className="menuButton" onClick={goMenu}>Main Menu</button>
+          <button className="menuButton restart" onClick={restart}>Restart</button>
+          <button className="menuButton menu" onClick={goMenu}>Main Menu</button>
         </div>
       )}
 
@@ -126,14 +150,14 @@ const Play = ({setScreen, levelNumber, setLevelNumber}) => {
 
       <div
         className="exitDoor"
-        style={getDoorPosition()}
+        style={getMapPosition(level.escapeDoor[1], level.escapeDoor[0], 13/15)}
       />
 
       {!!level.unlock.length && (
         <div
           key={`unlock-${levelNumber}`}
           className="unlock"
-          style={getUnlockPosition()}
+          style={getMapPosition(level.unlock[0], level.unlock[1], 2/3)}
         />
       )}
 
@@ -141,12 +165,13 @@ const Play = ({setScreen, levelNumber, setLevelNumber}) => {
         <div
           key={`lock-${levelNumber}`}
           className="lock"
-          style={getLockPosition()}
+          style={getMapPosition(level.lock[0], level.lock[1], 1)}
         />
       )}
 
       <div className="gameFooter">
         <h3 className="info alignLeft">Time left: {timeLeft}</h3>
+        <h3 className="info alignMiddle">Score: {score}</h3>
         <h3 className="info alignRight">Moves left: {movesLeft}</h3>
       </div>
     </div>
@@ -154,9 +179,9 @@ const Play = ({setScreen, levelNumber, setLevelNumber}) => {
 };
 
 Play.propTypes = {
-  setScreen: PropTypes.func.isRequired,
   levelNumber: PropTypes.number.isRequired,
-  setLevelNumber: PropTypes.func.isRequired
+  setLevelNumber: PropTypes.func.isRequired,
+  setScreen: PropTypes.func.isRequired
 }
 
 export default React.memo(Play);

@@ -7,6 +7,8 @@ const tileClass = {
   1: 'tile wall'
 }
 
+document.totalLevels = Object.keys(levelData).length;
+
 const getLevel = (which) => {
   const level = levelData[which];
   const boardSize = level.tiles.length;
@@ -25,7 +27,6 @@ const getLevel = (which) => {
       );
     })
   ));
-  console.log('buildedMap', buildedMap);
   return {
     ...level,
     rendered: buildedMap

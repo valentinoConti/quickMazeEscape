@@ -1,6 +1,10 @@
 #game {
   position: absolute;
 }
+#game:fullscreen {
+  width: 1024px;
+  height: 1024px;
+}
 
 .gameFooter {
   display: flex;
@@ -9,7 +13,7 @@
 }
 
 .info {
-  width: 50%;
+  width: 33%;
   font-size: 24px;
   padding-top: 14px;
   margin-top: 0;
@@ -21,25 +25,25 @@
   margin-left: 10px;
 }
 
+.alignMiddle {
+  text-align: center;
+}
+
 .alignRight {
   text-align: right;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .exitDoor {
   background-image: url('../../../assets/puerta.png');
   background-size: 100%;
   position: absolute;
-  /* width: 130px; */
-  /* height: 130px; */
 }
 
 .player {
   background-image: url('../../../assets/personaje.png');
   background-size: 100%;
   position: absolute;
-  /* width: 110px; */
-  /* height: 110px; */
   z-index: 2;
   transition: left 0.15s linear, bottom 0.15s linear;
 }
@@ -73,6 +77,9 @@
   top: 150px;
   left: 260px
 }
-.lost > .menuButton {
+.lost > .menuButton.menu {
+  margin-top: 30px;
+}
+.lost > .menuButton.restart {
   margin-top: 300px;
 }

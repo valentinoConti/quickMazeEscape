@@ -9,16 +9,28 @@ jest.useFakeTimers();
 
 describe('Playing tests', () => {
   let wrapper;
+  let mockScore = 0;
   const mockSetScreen = jest.fn();
   const mockLevelNumber = 1;
   const mockSetLevelNumber = jest.fn();
+  const mockSetScore = jest.fn((score) => mockScore += score);
   it('should launch the game', () => {
     wrapper = mount(
-      <Play setScreen={mockSetScreen} levelNumber={mockLevelNumber} setLevelNumber={mockSetLevelNumber} />
+      <Play
+        setScreen={mockSetScreen}
+        levelNumber={mockLevelNumber}
+        setLevelNumber={mockSetLevelNumber}
+        setScore={mockSetScore}
+        score={mockScore}
+      />
     );
 
     expect(wrapper.find('#game')).toBeTruthy();
   });
+
+  it('should take/compare snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  })
 
   it('should test the timer making you lose and the go back to menu button', () => {
     expect(wrapper.find('.lost').exists()).not.toBeTruthy();
@@ -27,14 +39,20 @@ describe('Playing tests', () => {
     });
     wrapper.update();
     expect(wrapper.find('.lost').exists()).toBeTruthy();
-    wrapper.find('.menuButton').simulate('click');
+    wrapper.find('.menuButton.menu').simulate('click');
     expect(mockSetScreen).toHaveBeenCalledWith('menu');
     expect(mockSetLevelNumber).toHaveBeenCalledWith(1);
   });
 
   it('should walktrought the first level and win', () => {
     wrapper = mount(
-      <Play setScreen={mockSetScreen} levelNumber={mockLevelNumber} setLevelNumber={mockSetLevelNumber} />
+      <Play
+        setScreen={mockSetScreen}
+        levelNumber={mockLevelNumber}
+        setLevelNumber={mockSetLevelNumber}
+        setScore={mockSetScore}
+        score={mockScore}
+      />
     );
 
     expect(wrapper.find('.player').props().style.left).toBe(15);
@@ -86,7 +104,13 @@ describe('Playing tests', () => {
 
   it('should test the player not moving against a wall and losing with no moves left', () => {
     wrapper = mount(
-      <Play setScreen={mockSetScreen} levelNumber={mockLevelNumber} setLevelNumber={mockSetLevelNumber} />
+      <Play
+        setScreen={mockSetScreen}
+        levelNumber={mockLevelNumber}
+        setLevelNumber={mockSetLevelNumber}
+        setScore={mockSetScore}
+        score={mockScore}
+      />
     );
 
     // Try to go down and shouldnt be able

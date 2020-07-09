@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu screen test should take/compare snapshot 1`] = `
+<Menu
+  setScreen={[MockFunction]}
+>
+  <div
+    id="menuScreen"
+  >
+    <h1
+      className="menuTitle"
+    >
+      Quick-Maze Escape
+    </h1>
+    <button
+      className="menuButton"
+      id="playButton"
+      onClick={[Function]}
+    >
+      Play
+    </button>
+    <button
+      className="menuButton marginTop"
+      id="instructionsButton"
+      onClick={[Function]}
+    >
+      Instructions
+    </button>
+    <button
+      className="menuButton marginTop"
+      id="fullscreenButton"
+      onClick={[Function]}
+    >
+      Fullscreen
+    </button>
+    <footer>
+      Valentino Conti
+    </footer>
+  </div>
+</Menu>
+`;
