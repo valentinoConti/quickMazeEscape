@@ -1,0 +1,13 @@
+.tile {
+  display: inline-flex;
+  background-size: 50%;
+  outline: black solid 2px;
+}
+
+.grass {
+  background-image: url('../../assets/pasto.gif');
+}
+
+.wall {
+  background-image: url('../../assets/ladrillo2.gif');
+}

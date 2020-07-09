@@ -1,0 +1,13 @@
+body {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+#root {
+  background-image: linear-gradient(#755748, #ffc197);
+  position: absolute;
+  width: 750px;
+  height: 750px;
+  /* transform: scale(0.9); */
+}

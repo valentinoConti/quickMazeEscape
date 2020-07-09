@@ -1,0 +1,78 @@
+#game {
+  position: absolute;
+}
+
+.gameFooter {
+  display: flex;
+  height: 56px;
+  border-bottom: 2px solid black;
+}
+
+.info {
+  width: 50%;
+  font-size: 24px;
+  padding-top: 14px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.alignLeft {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.alignRight {
+  text-align: right;
+  margin-right: 10px;
+}
+
+.exitDoor {
+  background-image: url('../../../assets/puerta.png');
+  background-size: 100%;
+  position: absolute;
+  /* width: 130px; */
+  /* height: 130px; */
+}
+
+.player {
+  background-image: url('../../../assets/personaje.png');
+  background-size: 100%;
+  position: absolute;
+  /* width: 110px; */
+  /* height: 110px; */
+  z-index: 2;
+  transition: left 0.15s linear, bottom 0.15s linear;
+}
+
+.unlock {
+  background-image: url('../../../assets/bomba.png');
+  background-size: 100%;
+  position: absolute;
+  margin-bottom: 15px;
+  margin-left: 10px;
+}
+
+.lock {
+  background-image: url('../../../assets/ladrillo.gif');
+  background-size: 50%;
+  position: absolute;
+  margin-left: -10px;
+}
+
+.lost {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+.lost > b {
+  color: white;
+  font-size: 72px;
+  position: absolute;
+  top: 150px;
+  left: 260px
+}
+.lost > .menuButton {
+  margin-top: 300px;
+}
