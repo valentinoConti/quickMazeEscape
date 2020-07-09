@@ -5,6 +5,12 @@ import Play from './screens/Play';
 import Controls from './screens/Controls';
 import Win from './screens/Win';
 
+/**
+ * @name App
+ * @description Quick Maze Escape main App screen. Responsible of the screens management and all the app flux.
+ * 
+ * @author Valentino Conti
+ */
 const App = () => {
   const [screen, setScreen] = useState('menu');
   const [levelNumber, setLevelNumber] = useState(1);

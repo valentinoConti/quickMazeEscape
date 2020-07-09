@@ -1,10 +1,12 @@
 /**
  * @name handledKeys
- * @description 
- * @param {*} prevState
- * @param {*} boardSize
- * @param {*} setMovesLeft
- * @param {*} locked
+ * @description Function that processes the player movement keyboard actions.
+ * @param {Object} prevState
+ * @param {Integer} boardSize
+ * @param {Function} setMovesLeft
+ * @param {Boolean} locked
+ * 
+ * @returns an object containing a function for every arrow key that handles if the player should move or not. 
  */
 export const handleKeys = (prevState, level, setMovesLeft, locked) => {
   const X = prevState[0];
@@ -42,4 +44,5 @@ export const handleKeys = (prevState, level, setMovesLeft, locked) => {
   }
 };
 
+// Array with every key that we are listening on the game
 export const allowedKeys = ['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp', 'r', 'R'];

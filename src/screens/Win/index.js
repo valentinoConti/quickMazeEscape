@@ -2,6 +2,13 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './Win.css';
 
+/**
+ * @name Win
+ * @description "YOU WIN" screen. Shows the highest score registered and the actual score done by the user.
+ * @param {Function} setScreen 
+ * @param {Integer} score 
+ * @param {Function} setScore 
+ */
 const Win = ({setScreen, score, setScore}) => {
   const goMenu = () => {
     setScore(0);
@@ -26,8 +33,9 @@ const Win = ({setScreen, score, setScore}) => {
 };
 
 Win.propTypes = {
-  setScreen: PropTypes.func.isRequired,
-  score: PropTypes.number.isRequired
+  score: PropTypes.number.isRequired,
+  setScore: PropTypes.func.isRequired,
+  setScreen: PropTypes.func.isRequired
 };
 
 export default Win;

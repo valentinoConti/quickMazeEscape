@@ -9,6 +9,12 @@ const tileClass = {
 
 document.totalLevels = Object.keys(levelData).length;
 
+/**
+ * @name getLevel
+ * @param {Integer} which (which level we want to get)
+ * 
+ * @returns the level information object with a 'rendered' key containing our map already proccesed into React components.
+ */
 const getLevel = (which) => {
   const level = levelData[which];
   const boardSize = level.tiles.length;

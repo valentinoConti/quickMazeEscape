@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Menu.css';
 
+/**
+ * @name Menu
+ * @description Menu screen. Here we have our different screens links (Play, Instructions and Fullscreen toggle)
+ * @param {Function} setScreen 
+ */
 const Menu = ({setScreen}) => {
   const playPressed = () => setScreen('play');
   const controlsPressed = () => setScreen('controls');

@@ -1,9 +1,16 @@
 /**
- * TILES MEANING:
- * 0: Grass (walkable)
- * 1: Wall (can't step here)
+ * Information for every level.
+ * The tiles map should contain the same height and width, and the amount of tiles per row/column should
+ * be a number divisible by 750. (Ex. 5, 6, 10).
+ * 
+ * Every 0 on the 'tiles' map represents a walkable zone and every 1 represents a wall blocking us.
+ * 
+ * 'unlock' key contains an array with the position for the unlocker bomb inside our map.
+ * 'lock' key contains the locked wall that the bomb unlocks.
+ * 'playerStart' and 'escapeDoor' keys contain the position where the player will start and the position for the escape door.
+ * 'movements' and 'time' keys are exactly that, the time and movements available for that level.
+ * 
  */
-
 export default {
   1: {
     tiles: [

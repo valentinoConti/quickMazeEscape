@@ -13,3 +13,9 @@ body {
   transform: scale(0.9);
   transform-origin: top center;
 }
+
+/* Pre-load all images so they are already cached before starting the game, preventing latency. */
+#root::after {
+  background-image: url('../assets/bomba.png'), url('../assets/ladrillo.gif'), url('../assets/ladrillo2.gif'),
+    url('../assets/menu.png'), url('../assets/pasto.gif'), url('../assets/personaje.png'), url('../assets/puerta.png');
+}

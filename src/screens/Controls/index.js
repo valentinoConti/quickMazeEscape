@@ -2,6 +2,11 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './Controls.css';
 
+/**
+ * @name Controls
+ * @description Information screen. Shows the controls to the user and let him go back to Menu.
+ * @param {Function} setScreen 
+ */
 const Controls = ({setScreen}) => {
   const goMenu = () => { setScreen('menu') };
 

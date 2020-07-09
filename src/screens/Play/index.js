@@ -9,7 +9,9 @@ import './Play.css';
  * @description This is the game screen. Here is where all the game logic happens
  *
  * @param {Integer} levelNumber
+ * @param {Integer} score
  * @param {Function} setLevelNumber
+ * @param {Function} setScore
  * @param {Function} setScreen
  */
 const Play = ({
@@ -112,7 +114,7 @@ const Play = ({
         setScreen('win');
       }
     }
-    // bomba unlock
+    // bomb unlock
     else if (player[0] === level.unlock[1] && player[1] === level.unlock[0]) {
       setLocked(false);
     }
@@ -180,7 +182,9 @@ const Play = ({
 
 Play.propTypes = {
   levelNumber: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
   setLevelNumber: PropTypes.func.isRequired,
+  setScore: PropTypes.func.isRequired,
   setScreen: PropTypes.func.isRequired
 }
 
