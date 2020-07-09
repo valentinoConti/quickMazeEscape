@@ -7,7 +7,8 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html --out-dir docs --public-url ./",
-    "rebuild": "npm run build"
+    "rebuild": "npm run build",
+    "test": "./node_modules/.bin/jest --coverage"
   },
   "babel": {
     "presets": [
@@ -17,13 +18,38 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^16.13.1"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "coverageDirectory": "coverage/",
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js"
+    ],
+    "collectCoverage": true,
+    "coverageReporters": [
+      [
+        "html"
+      ]
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
-    "parcel-bundler": "^1.12.4"
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.5.0",
+    "jest": "^26.1.0",
+    "jest-transform-stub": "^2.0.0",
+    "parcel-bundler": "^1.12.4",
+    "react-dom": "^16.13.1"
   }
 }

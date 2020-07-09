@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main App tests should take/compare App snapshot 1`] = `
+<App>
+  <Menu
+    setScreen={[Function]}
+  >
+    <div
+      id="menuScreen"
+    >
+      <h1
+        className="menuTitle"
+      >
+        Maze Escape
+      </h1>
+      <button
+        className="menuButton"
+        onClick={[Function]}
+      >
+        Play
+      </button>
+      <footer>
+        Valentino Conti
+      </footer>
+    </div>
+  </Menu>
+</App>
+`;

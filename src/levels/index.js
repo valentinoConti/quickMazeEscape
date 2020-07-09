@@ -9,8 +9,6 @@ const tileClass = {
 
 const getLevel = (which) => {
   const level = levelData[which];
-  console.log('getLevel', which)
-  console.log('level', level)
   const boardSize = level.tiles.length;
   const buildedMap = level.tiles.map((tileRow, y) => (
     tileRow.map((tile, x) => {
@@ -32,10 +30,6 @@ const getLevel = (which) => {
     ...level,
     rendered: buildedMap
   }
-}
-
-const unlockIt = () => {
-
 }
 
 export default getLevel;
