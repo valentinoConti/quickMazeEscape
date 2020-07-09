@@ -4,6 +4,7 @@
   "description": "valentinoConti Making Sense challenge app",
   "main": "index.html",
   "author": "valentinoConti",
+  "homepage": "https://valentinoconti.github.io/quickMazeEscape",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html --out-dir docs --public-url ./",
@@ -18,7 +19,8 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "jest": {
     "snapshotSerializers": [
@@ -30,7 +32,11 @@
       "!src/index.js"
     ],
     "collectCoverage": true,
-    "coverageReporters": [["html"]],
+    "coverageReporters": [
+      [
+        "html"
+      ]
+    ],
     "transform": {
       "^.+\\.js$": "babel-jest",
       ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
@@ -45,7 +51,6 @@
     "enzyme-to-json": "^3.5.0",
     "jest": "^26.1.0",
     "jest-transform-stub": "^2.0.0",
-    "parcel-bundler": "^1.12.4",
-    "react-dom": "^16.13.1"
+    "parcel-bundler": "^1.12.4"
   }
 }
