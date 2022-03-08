@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import getLevel from '../../levels';
-import {handleKeys, allowedKeys} from './keys';
+import { handleKeys, allowedKeys } from './keys';
 import './Play.css';
 
 /**
@@ -21,11 +21,10 @@ const Play = ({
   setScore,
   setScreen
 }) => {
-  const [whichLevel, setWhichLevel] = useState(1);
   const [playing, setPlaying] = useState(true);
 
-  const proccesedLevel = useMemo(() => getLevel(levelNumber), [level, levelNumber]);
-  const [level, setLevel] = useState(proccesedLevel);
+  const proccesedLevel = useMemo(() => getLevel(levelNumber), [levelNumber]);
+  const [level] = useState(proccesedLevel);
 
   const [player, setPlayer] = useState(level.playerStart.concat({
     right: true,
@@ -40,25 +39,24 @@ const Play = ({
   const boardSize = level.tiles.length;
 
   const getMapPosition = useCallback((bottomValue, leftValue, sizeMultiplier) => ({
-    bottom: 58 + (750/boardSize) * Math.abs(bottomValue-(boardSize-1)),
-    left: 10 + (750/boardSize) * leftValue,
-    width: sizeMultiplier * 750/boardSize,
-    height: sizeMultiplier * 750/boardSize
+    bottom: 58 + (750 / boardSize) * Math.abs(bottomValue - (boardSize - 1)),
+    left: 10 + (750 / boardSize) * leftValue,
+    width: sizeMultiplier * 750 / boardSize,
+    height: sizeMultiplier * 750 / boardSize
   }), [level]);
 
   const getPlayerPosition = useCallback(() => ({
-    bottom: 75 + (750/boardSize) * Math.abs(player[1]-(boardSize-1)),
-    left: 15 + (750/boardSize) * player[0],
-    width: 11/15 * 750/boardSize,
-    height: 11/15 * 750/boardSize,
+    bottom: 75 + (750 / boardSize) * Math.abs(player[1] - (boardSize - 1)),
+    left: 15 + (750 / boardSize) * player[0],
+    width: 11 / 15 * 750 / boardSize,
+    height: 11 / 15 * 750 / boardSize,
     transform: `
       scaleX(${player[2].right ? '1' : '-1'})
-      rotate(${
-        player[2].position === 'normal'
-          ? '0deg'
-          : player[2].position === 'up'
-            ? '-90deg'
-            : '90deg'
+      rotate(${player[2].position === 'normal'
+        ? '0deg'
+        : player[2].position === 'up'
+          ? '-90deg'
+          : '90deg'
       })
     `
   }), [player]);
@@ -106,7 +104,7 @@ const Play = ({
   useEffect(() => {
     // WIN
     if (player[0] === level.escapeDoor[0] && player[1] === level.escapeDoor[1]) {
-      setScore(score + (timeLeft*3 + movesLeft*4));
+      setScore(score + (timeLeft * 3 + movesLeft * 4));
       if (levelNumber < document.totalLevels) {
         setLevelNumber(levelNumber + 1);
       } else {
@@ -152,14 +150,14 @@ const Play = ({
 
       <div
         className="exitDoor"
-        style={getMapPosition(level.escapeDoor[1], level.escapeDoor[0], 13/15)}
+        style={getMapPosition(level.escapeDoor[1], level.escapeDoor[0], 13 / 15)}
       />
 
       {!!level.unlock.length && (
         <div
           key={`unlock-${levelNumber}`}
           className="unlock"
-          style={getMapPosition(level.unlock[0], level.unlock[1], 2/3)}
+          style={getMapPosition(level.unlock[0], level.unlock[1], 2 / 3)}
         />
       )}
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Menu from './screens/Menu';
 import Play from './screens/Play';

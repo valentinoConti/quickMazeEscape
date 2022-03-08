@@ -2,7 +2,6 @@
   "name": "valen-challenge",
   "version": "1.0.0",
   "description": "valentinoConti Making Sense challenge app",
-  "main": "index.html",
   "author": "valentinoConti",
   "homepage": "https://valentinoconti.github.io/quickMazeEscape",
   "scripts": {
@@ -51,6 +50,6 @@
     "enzyme-to-json": "^3.5.0",
     "jest": "^26.1.0",
     "jest-transform-stub": "^2.0.0",
-    "parcel-bundler": "^1.12.4"
+    "parcel": "^2.3.2"
   }
 }
